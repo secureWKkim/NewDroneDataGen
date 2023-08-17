@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'org.loggen.drone'
+version '0.0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:2.0.6'
+    implementation 'ch.qos.logback:logback-classic:1.3.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+sourceSets {
+    main.java.srcDirs += 'src.main.java'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.loggen.drone.DriverLogMain'
+    }
+}
